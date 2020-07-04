@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage('Clone Sources'){
             steps{
-                git url: 'http://localhost/Balamuragan_DevOps/HappyTrip_Testing.git'
+                git url: 'https://github.com/123balu42/HappyTrip_Testing.git'
             }
         }
     //Build the project
