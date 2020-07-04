@@ -15,7 +15,12 @@ pipeline{
         stage ('Build') {
             steps {
                     echo "Running job: ${env.JOB_NAME}\nbuild: ${env.BUILD_ID}"
-                    sh 'mvn -B -DskipTests clean package'
+                    bat '''
+                            cd Happytrip
+                             mvn clean package
+                             mvn clean install
+                             mvn -B verify
+                            '''
             }
           post {
                 success {
