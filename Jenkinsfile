@@ -4,11 +4,6 @@ pipeline{
              choice(choices: 'chrome\nfirefox\nie' , description: 'choose browser name' , name: 'browser')
              choice(choices: 'false\ntrue'  , description: 'Not running on Selenium Grid?' , name: 'localRun')
         }
-    
-    //Color Console Output
-    options {
-            ansiColor('xterm')
-    }
     stages{
         stage('Clone Sources'){
             steps{
