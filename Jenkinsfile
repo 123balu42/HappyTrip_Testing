@@ -20,9 +20,7 @@ pipeline{
         stage ('Build') {
             steps {
                     echo "Running job: ${env.JOB_NAME}\nbuild: ${env.BUILD_ID}"
-                        withMaven(maven: 'apache-maven-3.6.3'){
                             bat 'mvn HappyTrip/pom.xml install'
-                        }
             }
           post {
                 success {
