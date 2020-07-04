@@ -1,0 +1,19 @@
+package com.skillassure.happytrip.test;
+
+import java.io.File;
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
+
+public class TestMain {
+
+	static Logger log = Logger.getLogger(TestMain.class);
+
+	public static void main(String[] args) {
+		String log4jConfigFile = System.getProperty("user.dir") + File.separator + "log4j2.xml";
+		DOMConfigurator.configure(log4jConfigFile);
+
+		log.debug("this is a debug log message");
+		log.info("this is a information log message");
+		log.warn("this is a warning log message");
+	}
+}

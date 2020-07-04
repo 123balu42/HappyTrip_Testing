@@ -1,0 +1,30 @@
+package com.skillassure.happytrip.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import com.skillassure.happytrip.base.BaseClass;
+
+public class ScheduleFlight extends BaseClass {
+	WebDriver driver;
+
+	@Test(description = "This Test Phase will ensure scheduling the flight")
+	public void scheduleflight() throws Throwable {
+		// Navigate to Sign in link
+		// Using Partial link
+		driver.findElement(By.partialLinkText("Sign")).click();
+
+		driver.findElement(By.id("username")).sendKeys("admin@mindtree.com");
+
+		driver.findElement(By.id("password")).sendKeys("admin");
+
+		// Convert Tag name to String of Sign in BUtton
+		String text = driver.findElement(By.xpath("// button[@id='signInButton']")).getText();
+		System.out.println(text);
+
+		// Click sigin
+		driver.findElement(By.id("signInButton")).click();
+
+	}
+}

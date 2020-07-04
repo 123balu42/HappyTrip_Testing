@@ -1,0 +1,5 @@
+
+public class EdgeDriver {
+	
+	System.setProperty("webdriver.edge.driver", "C:\\Users\\balam\\Downloads\\MSEdgeDriver.exe");
+}

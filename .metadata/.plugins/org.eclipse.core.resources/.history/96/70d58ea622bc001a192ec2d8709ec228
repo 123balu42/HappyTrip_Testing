@@ -1,0 +1,25 @@
+package com.skillassure.happytrip.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import com.skillassure.happytrip.base.BaseClass;
+
+public class ScheduleFlight extends BaseClass {
+	WebDriver driver;
+
+	@Test(description = "This Test Phase will ensure Valid login of Admin")
+	public void login() throws Throwable {
+		// Navigate to Sign in link
+		driver.findElement(By.linkText("Sign in")).click();
+
+		driver.findElement(By.id("username")).sendKeys("admin@mindtree.com");
+
+		driver.findElement(By.id("password")).sendKeys("admin");
+
+		// Click sigin
+		driver.findElement(By.id("signInButton")).click();
+	}
+
+}

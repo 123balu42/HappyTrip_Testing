@@ -1,0 +1,89 @@
+package com.skillassure.happytrip.page;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import com.skillassure.happytrip.base.BaseClass;
+
+public class ScheduleFlight extends BaseClass {
+	WebDriver driver;
+
+	@Test(description = "This Test Phase will ensure scheduling the flight")
+	public void scheduleflight() throws Throwable {
+		// Navigate to Sign in link
+		driver.findElement(By.linkText("Sign in")).click();
+
+		driver.findElement(By.id("username")).sendKeys("admin@mindtree.com");
+
+		driver.findElement(By.id("password")).sendKeys("admin");
+
+		// Click sigin
+		driver.findElement(By.id("signInButton")).click();
+
+		// Navigate to Schedule flight link
+		driver.findElement(By.xpath("//a[contains(text(),'Schedule")).click();
+
+		// Choose the flight from the drop down
+		Select flight = new Select(driver.findElement(By.id("flight")));
+		flight.selectByVisibleText("spic01");
+
+		// Choose the route from the drop down
+		Select route = new Select(driver.findElement(By.id("route")));
+		route.selectByIndex(4);
+
+		// Enter the distance between From and To place
+		// Distance
+		driver.findElement(By.id("distance")).sendKeys("750");
+
+		// Enter the Departure & Arrival Date also the time
+
+		// Departure Date
+		// Open the Date picker
+		driver.findElement(By.cssSelector("dd:nth-child(12) > .ui-datepicker-trigger")).click();
+
+		// Select the date from date picker
+		WebElement departdate = driver.findElement(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td[6]/a"));
+		List<WebElement> Dday = departdate.findElements(By.tagName("td"));
+		// condition to select
+		for (WebElement cell : Dday) {
+			if (cell.getText().equals("3")) {
+				cell.click();
+				break;
+			}
+		}
+
+		// Set the departure time
+		Select dTime = new Select(driver.findElement(By.id("departureTime")));
+		dTime.selectByIndex(0);
+
+		// Arrival Date
+		// Open the Date picker
+		driver.findElement(By.cssSelector("dd:nth-child(12) > .ui-datepicker-trigger")).click();
+
+		// Select the date from date picker
+		WebElement arrivalDate = driver.findElement(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td[6]/a"));
+		List<WebElement> Aday = arrivalDate.findElements(By.tagName("td"));
+		// condition to select
+		for (WebElement cell : Aday) {
+			if (cell.getText().equals("4")) {
+				cell.click();
+				break;
+			}
+		}
+		// Set the arrival time
+		Select aTime = new Select(driver.findElement(By.id("arrivalTime")));
+		aTime.selectByIndex(0);
+
+		// Update the cost of Economy class
+		driver.findElement(By.id("classEconomy")).sendKeys("1500");
+
+		// Click Add to update the changes
+		driver.findElement(By.id("signInButton")).click();
+
+	}
+}

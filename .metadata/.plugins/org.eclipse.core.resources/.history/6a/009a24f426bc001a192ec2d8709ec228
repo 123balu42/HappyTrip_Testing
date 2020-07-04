@@ -1,0 +1,51 @@
+package com.skillassure.happytrip.page;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import com.skillassure.happytrip.base.BaseClass;
+
+public class ScheduleFlight extends BaseClass {
+	WebDriver driver;
+
+	@Test(description = "This Test Phase will ensure scheduling the flight")
+	public void scheduleflight() throws Throwable {
+
+		// Navigate to Schedule flight link
+		driver.findElement(By.xpath("//a[contains(text(),'Schedule")).click();
+
+		// Choose the flight from the drop down
+		Select flight = new Select(driver.findElement(By.id("flight")));
+		flight.selectByVisibleText("spic01");
+
+		// Choose the route from the drop down
+		Select route = new Select(driver.findElement(By.id("route")));
+		route.selectByIndex(4);
+
+		// Enter the distance between From and To place
+		// Distance
+		driver.findElement(By.id("distance")).sendKeys("750");
+
+		// Enter the Departure & Arrival Date also the time
+		// Departure Date
+		// Open the Date picker
+		driver.findElement(By.cssSelector("dd:nth-child(12) > .ui-datepicker-trigger")).click();
+
+		// Select the date from date picker
+		WebElement dateWidgetFrom = driver
+				.findElement(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td[6]/a"));
+		List<WebElement> columns = dateWidgetFrom.findElements(By.tagName("td"));
+		// condition
+		for (WebElement cell : columns) {
+			if (cell.getText().equals("3")) {
+				cell.click();
+				break;
+			}
+		}
+	}
+}

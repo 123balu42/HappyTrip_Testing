@@ -1,0 +1,8 @@
+package com.skillassure.happytrip.utils;
+
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+public class ExtentReport {
+	ExtentHtmlReporter extentHtmlReporter = new ExtentHtmlReporter("extentReports.html");
+
+}

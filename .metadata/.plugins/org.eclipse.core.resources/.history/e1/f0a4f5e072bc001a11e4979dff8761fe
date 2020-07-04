@@ -1,0 +1,34 @@
+package com.skillassure.happytrip.page;
+
+import org.openqa.selenium.By;
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+import com.skillassure.happytrip.base.BaseClass;
+
+public class Login extends BaseClass {
+
+	private String filePath = ("resources/TestData.xlsx");
+	private String sheetName = "Sheet1";
+
+	@Test(description = "This Test Phase will ensure Valid login of Admin", dataProvider = "AdminLogin")
+	public void login(String sUsername, String sPassword) throws Throwable {
+
+		// Navigate to Sign in link
+		// Using Partial link
+		driver.findElement(By.partialLinkText("Sign")).click();
+
+		driver.findElement(By.id("username")).sendKeys(sUsername);
+
+		driver.findElement(By.id("password")).sendKeys(sPassword);
+
+		// Convert Tag name to String of Sign in BUtton
+		String text = driver.findElement(By.xpath("// button[@id='signInButton']")).getText();
+		System.out.println(text);
+
+		// Click sigin
+		driver.findElement(By.id("signInButton")).click();
+		Reporter.log("Admin Loged In to WebApplication HappyTrip");
+	}
+
+}

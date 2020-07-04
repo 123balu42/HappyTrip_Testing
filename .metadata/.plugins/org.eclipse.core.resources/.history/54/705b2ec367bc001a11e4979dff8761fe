@@ -1,0 +1,5 @@
+package com.skillassure.happytrip.utils;
+
+public class ExtentReport {
+
+}

@@ -1,0 +1,4 @@
+# Created at 2020-07-04T09:23:34.512
+Boot Manifest-JAR contains absolute paths in classpath 'H:\Testing_Project\Project1\HappyTrip-JAVA\HappyTrip\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+

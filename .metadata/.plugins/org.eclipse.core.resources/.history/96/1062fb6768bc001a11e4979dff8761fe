@@ -1,0 +1,11 @@
+package com.skillassure.happytrip.base;
+
+public class BaseExtentReport {
+	// builds a new report using the html template
+	ExtentHtmlReporter htmlReporter;
+
+	ExtentReports extent;
+	// helps to generate the logs in test report.
+	ExtentTest test;
+
+}

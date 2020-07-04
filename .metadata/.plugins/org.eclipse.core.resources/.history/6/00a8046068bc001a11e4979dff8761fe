@@ -1,0 +1,5 @@
+package com.skillassure.happytrip.base;
+
+public class BaseExtentReport {
+
+}
