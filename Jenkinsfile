@@ -20,7 +20,7 @@ pipeline{
         stage ('Build') {
             steps {
                     echo "Running job: ${env.JOB_NAME}\nbuild: ${env.BUILD_ID}"
-                     sh 'mvn -Dmaven.test.failure.ignore=true install'
+                     sh 'mvn -Dmaven install'
             }
           post {
                 success {
