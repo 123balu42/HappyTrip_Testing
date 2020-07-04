@@ -20,7 +20,9 @@ pipeline{
         stage ('Build') {
             steps {
                     echo "Running job: ${env.JOB_NAME}\nbuild: ${env.BUILD_ID}"
+                script{
                             bat (/mvn clean install/)
+                }
             }
           post {
                 success {
