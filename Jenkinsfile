@@ -20,7 +20,7 @@ pipeline{
         stage ('Build') {
             steps {
                     echo "Running job: ${env.JOB_NAME}\nbuild: ${env.BUILD_ID}"
-                            bat 'mvn HappyTrip/pom.xml install'
+                            bat (/mvn clean install/)
             }
           post {
                 success {
