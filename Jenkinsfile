@@ -20,7 +20,7 @@ pipeline{
         stage ('Build') {
             steps {
                     echo "Running job: ${env.JOB_NAME}\nbuild: ${env.BUILD_ID}"
-                     sh 'mvn -Dmaven HappyTrip/pom.xml install'
+                    sh 'mvn -B -DskipTests clean package'
             }
           post {
                 success {
