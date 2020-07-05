@@ -16,7 +16,7 @@ pipeline{
             steps {
                     echo "Running job: ${env.JOB_NAME}\nbuild: ${env.BUILD_ID}"
                     bat '''
-                             mvn -f HappyTrip/pom.xml install
+                             mvn -f HappyTrip/pom.xml clean install
                             '''
             }
           post {
