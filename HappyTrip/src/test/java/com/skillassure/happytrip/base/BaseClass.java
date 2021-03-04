@@ -15,6 +15,7 @@ public class BaseClass {
 	private static Logger log = LogManager.getLogger(BaseClass.class);
 
 	public WebDriver driver;
+	public WebDriver driver;
 
 	@BeforeClass
 	public void setupApplication() {
