@@ -16,6 +16,7 @@ public class BaseClass {
 
 	public WebDriver driver;
 	public WebDriver driver;
+	public WebDriver driver;
 
 	@BeforeClass
 	public void setupApplication() {
